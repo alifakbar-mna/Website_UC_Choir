@@ -1,11 +1,411 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Universitas Ciputra Choir</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: #0f172a;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* NAVBAR */
+
+        nav {
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #facc15;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            transition: 0.3s;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: #facc15;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 8%;
+            background:
+                linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.9)),
+                url('https://images.unsplash.com/photo-1507838153414-b4b713384a76?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .hero-content span {
+            color: #facc15;
+        }
+
+        .hero-content p {
+            max-width: 700px;
+            margin: auto;
+            line-height: 1.8;
+            color: #cbd5e1;
+            margin-bottom: 35px;
+        }
+
+        .btn {
+            padding: 14px 32px;
+            background: #facc15;
+            color: #111827;
+            border: none;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #fde047;
+            transform: translateY(-3px);
+        }
+
+        /* SECTION */
+
+        section {
+            padding: 100px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: #facc15;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #94a3b8;
+        }
+
+        /* ABOUT */
+
+        .about {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about img {
+            width: 100%;
+            border-radius: 20px;
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            color: #cbd5e1;
+            line-height: 1.8;
+        }
+
+        /* GALLERY */
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 20px;
+            position: relative;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: 0.4s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* MEMBERS */
+
+        .member-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .member-card {
+            background: #1e293b;
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .member-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .member-card img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 4px solid #facc15;
+        }
+
+        .member-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .member-card p {
+            color: #94a3b8;
+        }
+
+        /* CONTACT */
+
+        .contact {
+            text-align: center;
+        }
+
+        .contact p {
+            color: #cbd5e1;
+            margin-bottom: 20px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: #020617;
+            color: #94a3b8;
+        }
+
+        @media(max-width:768px) {
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+        }
+    </style>
 </head>
+
 <body>
-    <h1>UC Choir</h1>
+
+    <!-- NAVBAR -->
+
+    <nav>
+        <div class="logo">UC Choir</div>
+
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#members">Members</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+            <h1>Universitas Ciputra <span>Choir</span></h1>
+
+            <p>
+                Harmonizing passion, talent, and dedication through music.
+                Universitas Ciputra Choir is a student choir community that inspires through beautiful performances and
+                meaningful collaborations.
+            </p>
+
+            <a href="#about" class="btn">Explore More</a>
+        </div>
+
+    </section>
+
+    <!-- ABOUT -->
+
+    <section id="about">
+
+        <div class="section-title">
+            <h2>About Us</h2>
+            <p>Creating harmony beyond music.</p>
+        </div>
+
+        <div class="about">
+
+            <img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?q=80&w=1974&auto=format&fit=crop"
+                alt="Choir">
+
+            <div class="about-text">
+                <h3>Passion Through Harmony</h3>
+
+                <p>
+                    Universitas Ciputra Choir is a student organization dedicated to developing musical excellence,
+                    teamwork, and artistic expression through choral performances.
+                    We actively participate in university events, competitions, and community performances while
+                    building a supportive and inspiring environment.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- GALLERY -->
+
+    <section id="gallery">
+
+        <div class="section-title">
+            <h2>Gallery</h2>
+            <p>Moments captured from our performances.</p>
+        </div>
+
+        <div class="gallery-grid">
+
+            <div class="gallery-item">
+                <img
+                    src="https://images.unsplash.com/photo-1503095396549-807759245b35?q=80&w=1974&auto=format&fit=crop">
+            </div>
+
+            <div class="gallery-item">
+                <img
+                    src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?q=80&w=2070&auto=format&fit=crop">
+            </div>
+
+            <div class="gallery-item">
+                <img
+                    src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?q=80&w=2070&auto=format&fit=crop">
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- MEMBERS -->
+
+    <section id="members">
+
+        <div class="section-title">
+            <h2>Our Team</h2>
+            <p>Meet the voices behind the harmony.</p>
+        </div>
+
+        <div class="member-grid">
+
+            <div class="member-card">
+                <img src="https://randomuser.me/api/portraits/women/44.jpg">
+                <h3>Sarah Johnson</h3>
+                <p>Choir Conductor</p>
+            </div>
+
+            <div class="member-card">
+                <img src="https://randomuser.me/api/portraits/men/32.jpg">
+                <h3>Michael Lee</h3>
+                <p>Tenor Leader</p>
+            </div>
+
+            <div class="member-card">
+                <img src="https://randomuser.me/api/portraits/women/68.jpg">
+                <h3>Olivia Smith</h3>
+                <p>Soprano Leader</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- CONTACT -->
+
+    <section id="contact">
+
+        <div class="section-title">
+            <h2>Contact Us</h2>
+            <p>Interested in collaborating or joining us?</p>
+        </div>
+
+        <div class="contact">
+            <p>Email: ucchoir@ciputra.ac.id</p>
+            <p>Instagram: @ucchoir</p>
+
+            <a href="#" class="btn">Join Our Choir</a>
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+
+    <footer>
+        © 2026 Universitas Ciputra Choir. All Rights Reserved.
+    </footer>
+
 </body>
+
 </html>
